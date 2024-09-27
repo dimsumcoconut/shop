@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/Screen/LogIn_Screen.dart';
+import 'package:shop/Screen/SplashScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Vivi Shop',
         theme: ThemeData(),
-        home: const LogIn());
+        home: const Splashscreen());
   }
 }
