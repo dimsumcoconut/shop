@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop/Screen/HomeScreen.dart';
+import 'package:shop/Screen/RegisterScreen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -58,40 +60,6 @@ class _LogInScreenState extends State<LogInScreen> {
 
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                            borderRadius: BorderRadius.circular(20)),
-                      hintText: "Email",
-                      // fillColor: Colors.black,
-                      // filled: true,
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: Colors.black,
-                        size: 18,
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),)
-                      // border: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(20),
-                      // ),
-                      // focusedBorder: UnderlineInputBorder(
-                      //   borderSide: BorderSide(color: Colors.black),
-                      // ),
-                      ),
-                  style: const TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black),
-                ),
-              ),
-
-              Container(
-                // width: 500,
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 32, vertical: 75),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -100,131 +68,137 @@ class _LogInScreenState extends State<LogInScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(20)),
+                        hintText: "Email",
+                        // fillColor: Colors.amber,
+                        // filled: true,
                         prefixIcon: Icon(
-                          Icons.people,
+                          Icons.email,
                           color: Colors.black,
                           size: 18,
                         ),
-                        label: Text(
-                          'Email',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              fontSize: 16),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
+                        // border: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(20),
+                        // ),
+                        // focusedBorder: UnderlineInputBorder(
+                        //   borderSide: BorderSide(color: Colors.black),
+                        // ),
                       ),
                       style: const TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black),
-                      // controller: emailController,
-                      // keyboardType: TextInputType.emailAddress,
-                      // decoration: const InputDecoration(
-                      //   enabledBorder: UnderlineInputBorder(
-                      //       borderSide: BorderSide(color: Colors.black)),
-                      //   focusedBorder: UnderlineInputBorder(
-                      //     borderSide: BorderSide(color: Colors.black),
-                      //   ),
-                      //   prefixIcon: Icon(
-                      //     Icons.email,
-                      //     color: Colors.black,
-                      //     size: 18,
-                      //   ),
-                      //   label: Text(
-                      //     'Email',
-                      //     style: TextStyle(
-                      //         fontWeight: FontWeight.normal,
-                      //         color: Colors.black,
-                      //         fontSize: 16),
-                      //   ),
-                      // ),
-                      // style: const TextStyle(
-                      //     fontWeight: FontWeight.normal, color: Colors.black),
-                      // validator: (value) {
-                      //   if (value!.isEmpty) {
-                      //     return "Email cannot be empty";
-                      //   }
-                      //   if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                      //       .hasMatch(value)) {
-                      //     return ("Please enter a valid email");
-                      //   } else {
-                      //     return null;
-                      //   }
-                      // },
-                      // onSaved: (value) {
-                      //   emailController.text = value!;
-                      // },
-                      
+                          fontWeight: FontWeight.normal, color: Colors.black),
                     ),
+                    SizedBox(height: 15),
                     TextFormField(
                       controller: passwordController,
                       obscureText: _isSecurePassword,
                       decoration: InputDecoration(
-                        enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                        focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                        prefixIcon: const Icon(
-                          Icons.people,
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(20)),
+                        hintText: "Password",
+                        // fillColor: Colors.amber,
+                        // filled: true,
+                        prefixIcon: Icon(
+                          Icons.lock,
                           color: Colors.black,
                           size: 18,
                         ),
                         suffixIcon: buttonPassword(),
-                        label: const Text(
-                          'Password',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black),
+
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
+                        // border: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(20),
+                        // ),
+                        // focusedBorder: UnderlineInputBorder(
+                        //   borderSide: BorderSide(color: Colors.black),
+                        // ),
                       ),
-                      validator: (value) {
-                        RegExp regex = RegExp(r'^.{6,}$');
-                        if (value!.isEmpty) {
-                          return "Password cannot be empty";
-                        }
-                        if (!regex.hasMatch(value)) {
-                          return ("please enter valid password min. 6 character");
-                        } else {
-                          return null;
-                        }
-                      },
-                      onSaved: (value) {
-                        passwordController.text = value!;
-                      },
                       style: const TextStyle(
                           fontWeight: FontWeight.normal, color: Colors.black),
                     ),
-                    const SizedBox(height: 50),
-                    MaterialButton(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(20.0))),
-                      elevation: 5.0,
-                      height: 40,
-                      onPressed: () {
-                        setState(() {
-                          visible = true;
-                        });
-                        // signIn(emailController.text, passwordController.text);
-                      },
-                      child: Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(100)),
-                        child: const Center(
-                          child: Text("Log In",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                              )),
-                        ),
+                    const SizedBox(height: 20),
+
+                    Container(
+                      width: double.infinity,
+                      child: RawMaterialButton(
+                        fillColor: Colors.pink[100],
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ));
+                        },
+                        child: Text("Login", style: TextStyle(fontSize: 15)),
                       ),
+                      // decoration: BoxDecoration(
+                      //     color: Colors.black,
+                      //     borderRadius: BorderRadius.circular(100)),
+                      // child: const Center(
+                      //   child: Text("Log In",
+                      //       style: TextStyle(
+                      //         color: Colors.white,
+                      //         fontSize: 20,
+                      //       )),
+                      // ),
                     ),
+
+                    SizedBox(height: 100),
+
+                    Text("Don't have account?"),
+                    MaterialButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterScreen(),
+                              ));
+                        },
+                        child: const Text("Signup",
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w900
+                        ),))
+
+                    // MaterialButton(
+                    //   shape: const RoundedRectangleBorder(
+                    //       borderRadius:
+                    //           BorderRadius.all(Radius.circular(20.0))),
+                    //   elevation: 5.0,
+                    //   height: 40,
+                    //   onPressed: () {
+                    //     setState(() {
+                    //       visible = true;
+                    //     });
+                    //     // signIn(emailController.text, passwordController.text);
+                    //   },
+                    //   child: Container(
+                    //     height: 50,
+                    //     decoration: BoxDecoration(
+                    //         color: Colors.black,
+                    //         borderRadius: BorderRadius.circular(100)),
+                    //     child: const Center(
+                    //       child: Text("Log In",
+                    //           style: TextStyle(
+                    //             color: Colors.white,
+                    //             fontSize: 20,
+                    //           )),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
