@@ -55,10 +55,41 @@ class _LogInScreenState extends State<LogInScreen> {
               const SizedBox(
                 height: 20,
               ),
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(20)),
+                      hintText: "Email",
+                      // fillColor: Colors.black,
+                      // filled: true,
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.black,
+                        size: 18,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),)
+                      // border: OutlineInputBorder(
+                      //   borderRadius: BorderRadius.circular(20),
+                      // ),
+                      // focusedBorder: UnderlineInputBorder(
+                      //   borderSide: BorderSide(color: Colors.black),
+                      // ),
+                      ),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black),
+                ),
+              ),
+
               Container(
                 // width: 500,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-              
+
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 75),
                 child: Column(
@@ -69,16 +100,13 @@ class _LogInScreenState extends State<LogInScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     ),
                     TextFormField(
-                      controller: emailController,
-                      keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.black)),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
+                            borderSide: BorderSide(color: Colors.black)),
                         prefixIcon: Icon(
-                          Icons.email,
+                          Icons.people,
                           color: Colors.black,
                           size: 18,
                         ),
@@ -90,23 +118,47 @@ class _LogInScreenState extends State<LogInScreen> {
                               fontSize: 16),
                         ),
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Email cannot be empty";
-                        }
-                        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                            .hasMatch(value)) {
-                          return ("Please enter a valid email");
-                        } else {
-                          return null;
-                        }
-                      },
-                      onSaved: (value) {
-                        emailController.text = value!;
-                      },
                       style: const TextStyle(
                           fontWeight: FontWeight.normal,
                           color: Colors.black),
+                      // controller: emailController,
+                      // keyboardType: TextInputType.emailAddress,
+                      // decoration: const InputDecoration(
+                      //   enabledBorder: UnderlineInputBorder(
+                      //       borderSide: BorderSide(color: Colors.black)),
+                      //   focusedBorder: UnderlineInputBorder(
+                      //     borderSide: BorderSide(color: Colors.black),
+                      //   ),
+                      //   prefixIcon: Icon(
+                      //     Icons.email,
+                      //     color: Colors.black,
+                      //     size: 18,
+                      //   ),
+                      //   label: Text(
+                      //     'Email',
+                      //     style: TextStyle(
+                      //         fontWeight: FontWeight.normal,
+                      //         color: Colors.black,
+                      //         fontSize: 16),
+                      //   ),
+                      // ),
+                      // style: const TextStyle(
+                      //     fontWeight: FontWeight.normal, color: Colors.black),
+                      // validator: (value) {
+                      //   if (value!.isEmpty) {
+                      //     return "Email cannot be empty";
+                      //   }
+                      //   if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                      //       .hasMatch(value)) {
+                      //     return ("Please enter a valid email");
+                      //   } else {
+                      //     return null;
+                      //   }
+                      // },
+                      // onSaved: (value) {
+                      //   emailController.text = value!;
+                      // },
+                      
                     ),
                     TextFormField(
                       controller: passwordController,
@@ -144,8 +196,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         passwordController.text = value!;
                       },
                       style: const TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black),
+                          fontWeight: FontWeight.normal, color: Colors.black),
                     ),
                     const SizedBox(height: 50),
                     MaterialButton(
@@ -168,7 +219,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         child: const Center(
                           child: Text("Log In",
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 20,
                               )),
                         ),
